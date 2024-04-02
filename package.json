@@ -1,0 +1,29 @@
+{
+  "name": "demo-cy",
+  "version": "1.0.0",
+  "description": "install cypress  - npm install cypress --save-dev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "delete:reports": "rm -rf cypress/reports && rm -rf mochawesome-report && rm mochawesome.json",
+    "open:qa": "cypress open --e2e --browser chrome --env ENV=qa",
+    "run:qa": "cypress run --env ENV=qa",
+    "report:mocha": "mochawesome-merge 'cypress/reports/mocha/*.json' > mochawesome.json",
+    "merge:mocha": "marge mochawesome.json",
+    "gen:report": "npm-run-all --sequential --continue-on-error report:mocha merge:mocha",
+    "run:all": "npm-run-all --sequential --continue-on-error delete:reports run:qa gen:report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress-multi-reporters": "^1.6.4",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}

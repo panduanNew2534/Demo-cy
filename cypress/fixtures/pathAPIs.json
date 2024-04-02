@@ -1,0 +1,5 @@
+{
+    "endpointPath": {
+        "employeesGET": "/api/v1/employees"
+    }
+}
